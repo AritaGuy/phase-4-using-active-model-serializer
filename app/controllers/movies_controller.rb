@@ -11,6 +11,11 @@ class MoviesController < ApplicationController
     render json: movie
   end
 
+  def summaryika
+    movie = Movie.all
+    render json: movie, each_serializer: MovieSummarySerializer
+  end
+
   private
 
   def render_not_found_response
